@@ -14,8 +14,9 @@ public class Test1 {
 	//-------------------------------------------------------------------------
 	public static void main(String[] args) {
 		System.out.println("Begin: Example 1\n");
-
-		int numParticles = 50000;
+		
+		long start = System.currentTimeMillis();
+		int numParticles = 5000;
 		// Create a swarm (using 'MyParticle' as sample particle and 'MyFitnessFunction' as fitness function)
 		Swarm swarm = new Swarm(numParticles, new MyParticle(), new MyFitnessFunction());
 
@@ -43,6 +44,7 @@ public class Test1 {
 				swarm.evolve();
 		}
 
+		System.out.println(System.currentTimeMillis() - start);
 		// Print results
 		System.out.println(swarm.toStringStats());
 		System.out.println("End: Example 1");
